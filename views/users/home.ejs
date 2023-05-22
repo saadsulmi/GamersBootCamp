@@ -1,0 +1,170 @@
+<%- include ('../layouts/header.ejs') %>
+
+
+
+    <!-- Start Banner Hero -->
+    
+        
+
+    <% if(banner) {%>    
+        
+        
+        <div id="template-mo-zay-hero-carousel" class="carousel slide mt-5" data-bs-ride="carousel" data-bs-interval="4000">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#template-mo-zay-hero-carousel"  data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+            </ol>
+            <div style="background-color: rgb(33, 33, 33);"  class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);" class="img-fluid " src="/uploads/<%=banner.image[0]%>" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 style="color: white;" class="h1"><b>GamersBootcamp</b></h1>
+                                    <h3 style="color: rgb(209, 209, 209);" class="h2">Welcome to our Store</h3>
+                                     <p style="color: rgb(107, 107, 107);" ><%=banner.description%></p>
+                                     <a class="btn btn-outline-light btn-success mt-3 animate__animated animate__fadeInUp"
+                                            href="/loadShop">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% for(i=1;i<=banner.image.length;i++){%>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);" class="img-fluid text-light" src="/uploads/<%=banner.image[i]%>" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 style="color: white;" class="h1"><b>GamersBootcamp</b></h1>
+                                    <h3 style="color: rgb(209, 209, 209);" class="h2">Welcome to our Store</h3>
+                                     <p style="color: rgb(107, 107, 107);" ><%=banner.description%></p>
+                                     <a class="btn btn-outline-light btn-success mt-3 animate__animated animate__fadeInUp"
+                                            href="/loadShop">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div   class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);" class="img-fluid" src="/uploads/<%=banner.image[i+1]%>" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 style="color: white;" class="h1"><b>GamersBootcamp</b></h1>
+                                    <h3 style="color: rgb(209, 209, 209);" class="h2">Welcome to our Store</h3>
+                                     <p style="color: rgb(107, 107, 107);" ><%=banner.description%></p>
+                                     <a class="btn btn-outline-light btn-success mt-3 animate__animated animate__fadeInUp"
+                                            href="/loadShop">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+                <i class="fas fa-chevron"></i>
+            </a>
+            <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+                <i class="fas fa-chevron"></i>
+            </a>
+        </div>
+        <% }}
+           
+           
+           else { %>
+        <div id="template-mo-zay-hero-carousel" class="carousel slide mt-5" data-bs-ride="carousel">
+            
+            <div style="background-color: rgb(33, 33, 33);" class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-6 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src="." alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 style="color: white;" class="h1"><b>GamersBootcamp</b></h1>
+                                    <h3 style="color: rgb(189, 189, 189);" class="h2">Welcome to our Store</h3>
+                                    <p style="color: rgb(107, 107, 107);" class="my-4">"Welcome to our gaming paradise! Immerse yourself in a world of thrilling adventures and intense competition. Explore our vast collection of games, from action-packed shooters to immersive RPGs and captivating strategy titles." </p>
+                                    
+                                    <a class="btn btn-outline-light  btn-success py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                                            href="/loadShop">Shop Now</a>
+                                   
+                                </div>
+                               
+                                
+                            </div>
+                            <div   class="col-lg-6 d-flex align-items-center justify-content-center">
+                                    <img style="margin-left: 10px; width: 400px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 15px;" src="./assets/img/logo.png" alt="">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <%}%>
+    
+    
+    <!-- End Banner Hero -->
+
+    <!-- Start Categories of The Month -->
+    <div style="background-color: black;">
+
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1 text-light">CATEGORIES OF MONTH</h1>
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4  p-5 mt-3 ">
+                <a href="/loadShop?category=2"><img style="border-radius: 10px;" src="./assets/img/category_img_01.jpg" class=" img-fluid border"></a>
+                
+                    <a class="btn btn-container-fluid btn-outline-warning btn py-2 px-4 mt-3 animate__animated animate__fadeInUp  "
+                                            href="/loadShop?category=2">GAMES</a>
+                
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="/loadShop?category=0"><img style="border-radius: 10px;"  src="./assets/img/category_img_02.jpg" class=" img-fluid border"></a>
+                
+                
+                <a class="btn btn-container-fluid btn-outline-warning btn py-2 px-4 mt-3 animate__animated animate__fadeInUp  "
+                                            href="/loadShop?category=0">CONSOLES</a>
+             
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="/loadShop?category=1"><img style="border-radius: 10px;" src="./assets/img/category_img_03.jpg" class=" img-fluid border"></a>
+                
+                
+                <a class="btn btn-container-fluid btn-outline-warning btn py-2 px-4 mt-3 animate__animated animate__fadeInUp "
+                                            href="/loadShop?category=1">ACCESSORIES</a>
+                
+            </div>
+        </div>
+
+        
+
+    </section>
+</div>
+
+<script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+</script>
+
+    <%- include('../layouts/footer.ejs') %>
