@@ -275,7 +275,7 @@
                             </div>
                         </div>
 
-                            <button style="height: 40px; align-items: center;" class="btn btn-block btn-primary font-weight-bold mt-3" type="submit">Place
+                            <button  style="height: 40px; align-items: center;" class="btn btn-block btn-primary font-weight-bold mt-3" type="submit">Place
                                 Order</button>
 
 
@@ -370,18 +370,49 @@
         };
 
     </script>
+    <script>
+        // Get the radio button element
+var addressRadio = document.getElementById('addressid');
 
+// Get the form input elements
+var firstNameInput = document.getElementsByName("firstname")[0];
+var lastNameInput = document.getElementsByName("lastname")[0];
+var phoneInput = document.getElementsByName("mno")[0];
+var addressInput = document.getElementsByName("details")[0];
+var countryInput = document.getElementsByName("country")[0];
+var cityInput = document.getElementsByName("city")[0];
+var stateInput = document.getElementsByName("state")[0];
+var zipInput = document.getElementsByName("zip")[0];
+
+// Add an event listener to the radio button
+addressRadio.addEventListener("change", function() {
+  // Check if the radio button is checked
+  if (this.checked) {
+    // Validate the form values
+    var isValid = true;
+    if (firstNameInput.value === "") {
+      isValid = false;
+      // Display an error message or perform any other validation logic
+    }
+    if (lastNameInput.value === "") {
+      isValid = false;
+      // Display an error message or perform any other validation logic
+    }
+    // Validate the rest of the form fields
+
+    // If the form is not valid, you can prevent form submission by using:
+    // event.preventDefault();
+
+    // Example: Display a validation message if the form is not valid
+    if (!isValid) {
+      alert("Please fill in all the required fields.");
+    }
+  }
+});
+
+    </script>
 
     <script>
-  
-
-
-
-
-
-
-
-
 
         
         function apply() {
