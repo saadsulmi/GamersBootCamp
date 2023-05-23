@@ -313,6 +313,9 @@
                 </button>
             </div>
             <div class="modal-body">
+                <% if(coupon.length>=0) {%>
+                    <h6 class="mx-4 text-uppercase text-danger">no coupon found</h6>
+                <% } %>
                 <input type="hidden" id="total" value="<%=coupon.length %>">
                 <% for(i=0;i<coupon.length;i++){ %>
                     <% if(coupon[i].isAvailable){%>
