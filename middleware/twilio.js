@@ -14,7 +14,7 @@ const sendMessage=function (mobile,res,next){
 .catch(error => console.log(error));
    return randomOTP;
 }
-
+//not included
 module.exports={
     sendMessage,
 }

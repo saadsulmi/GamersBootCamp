@@ -104,7 +104,11 @@
 
                         <tr class="text-light">
                             <td class="align-middle">
-                              <%=key._id%>
+                              <% if(key.products.item.length===1){ %>
+                                <%=key.products.item[0].productId.name%>
+                              <% }else{ %>
+                              <%=key.products.item[0].productId.name%> <small class="h6 text-info">view more</small>
+                              <% } %>
                             </td>
                             <td class="align-middle " >
                               <%=key.createdAt.toDateString()%>
