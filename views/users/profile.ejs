@@ -103,11 +103,11 @@
                   <% for(let key of order){ %>
 
                         <tr class="text-light">
-                            <td class="align-middle">
+                            <td class="align-start">
                               <% if(key.products.item.length===1){ %>
                                 <%=key.products.item[0].productId.name%>
                               <% }else{ %>
-                              <%=key.products.item[0].productId.name%> <small class="h6 text-info">view more</small>
+                              <%=key.products.item[0].productId.name%> , <a class="text-decoration-none" href="/vieworder?id=<%=key._id%>"><small class="h6 text-info"> more..</small></a> 
                               <% } %>
                             </td>
                             <td class="align-middle " >
