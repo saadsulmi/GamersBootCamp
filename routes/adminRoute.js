@@ -74,9 +74,9 @@ admin_route.get("/loadOrderDetails",adminController.viewOrderDetails)
 
 admin_route.get("/banner",bannerController.loadBanner);
 
-admin_route.get("/add-Banners",bannerController.loadAddBanner);
+admin_route.get("/addBanners",bannerController.loadAddBanner);
 
-admin_route.post("/add-Banners",multer.uploads.array('bImage',3),bannerController.addBanner);
+admin_route.post("/addBanners",multer.uploads.array('bImage',3),bannerController.addBanner);
 
 admin_route.get("/hideBanner",bannerController.hideBanner)
 
@@ -90,13 +90,13 @@ admin_route.get("/addCoupon",couponController.addCoupon);
 
 admin_route.post("/addCoupon",couponController.addNewCoupon);
 
-admin_route.get("/avail-coupon",couponController.availCoupon);
+admin_route.get("/availCoupon",couponController.availCoupon);
 
-admin_route.get("/edit-coupon",couponController.editCoupon);
+admin_route.get("/editCoupon",couponController.editCoupon);
 
-admin_route.post("/edit-coupon",couponController.editUpdateCoupon);
+admin_route.post("/editCoupon",couponController.editUpdateCoupon);
 
-admin_route.get("/delete-coupon",couponController.deleteCoupon);
+admin_route.get("/deleteCoupon",couponController.deleteCoupon);
 
 
 admin_route.use(errorHandler);

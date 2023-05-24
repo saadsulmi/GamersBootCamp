@@ -31,13 +31,13 @@
               <td><%=coupon[i-1].maximumvalue%></td>
 
               <td>
-                <a href="/admin/edit-coupon?id=<%- coupon[i-1]._id %>"><button type="button"
+                <a href="/admin/editCoupon?id=<%- coupon[i-1]._id %>"><button type="button"
                     class="btn btn-success">edit</button></a>
 
-                <a style="height: 36px;" href="/admin/delete-coupon?id=<%- coupon[i-1]._id %>"  class="btn btn-danger p-1 border-3"
+                <a style="height: 36px;" href="/admin/deleteCoupon?id=<%- coupon[i-1]._id %>"  class="btn btn-danger p-1 border-3"
                   type="button">delete</a>&nbsp;
                 <a id="<%-coupon[i-1]._id %>" style="text-decoration: none; color: #4117be;"
-                  href="/admin/avail-coupon?id=<%- coupon[i-1]._id %>">
+                  href="/admin/availCoupon?id=<%- coupon[i-1]._id %>">
                   <% if(coupon[i-1].isAvailable){ %>Unlist<%}else{%>list<%}%>
                 </a>
               </td>
