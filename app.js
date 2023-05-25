@@ -8,13 +8,7 @@ const mongo = require('./config/config');
 const app=express();
 
 //export mongoose it as function
-const mongoose=require('mongoose');
-mongoose.set('strictQuery',false);
-require('dotenv').config();
-mongoose.connect(process.env.DATABASE);
-mongoose.connection.once('open',()=>{
-console.log('connection is successfully established');
-});
+app.set(mongo.mongooseUp())
 
 app.set('view engine','ejs');
 
@@ -34,6 +28,6 @@ app.all('*', (req, res) => {
   res.render('error');
 });
 
-app.listen(3000, ()=>{
-    console.log("server is running at 3000");
+app.listen(5000, ()=>{
+    console.log("server is running at 5000");
 });
