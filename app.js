@@ -7,7 +7,7 @@ const mongo = require('./config/config');
 const app=express();
 const PORT=5000;
 //export mongoose it as function
-app.set(mongo.mongooseUp())
+mongo.mongooseUp()
 
 app.set('view engine','ejs');
 
