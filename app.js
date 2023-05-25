@@ -8,7 +8,7 @@ const mongo = require('./config/config');
 const app=express();
 
 //export mongoose it as function
-app.set(mongo.mongooseUp())
+mongo.mongooseUp()
 
 app.set('view engine','ejs');
 
@@ -28,6 +28,6 @@ app.all('*', (req, res) => {
   res.render('error');
 });
 
-app.listen(5000, ()=>{
-    console.log("server is running at 5000");
+app.listen(3000, ()=>{
+    console.log("server is running at 3000");
 });
