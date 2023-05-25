@@ -4,9 +4,8 @@ const adminRoute=require('./routes/adminRoute');
 const userRoute=require('./routes/userRoute');
 const userForgetPass=require('./routes/forgotPassword');
 const mongo = require('./config/config');
-
 const app=express();
-
+const PORT=5000;
 //export mongoose it as function
 app.set(mongo.mongooseUp())
 
@@ -28,6 +27,7 @@ app.all('*', (req, res) => {
   res.render('error');
 });
 
-app.listen(5000, ()=>{
-    console.log("server is running at 5000");
+
+app.listen( PORT , ()=>{
+    console.log("server is running at "+PORT);
 });
