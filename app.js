@@ -8,7 +8,13 @@ const mongo = require('./config/config');
 const app=express();
 
 //export mongoose it as function
-mongo.mongooseUp()
+const mongoose=require('mongoose');
+mongoose.set('strictQuery',false);
+require('dotenv').config();
+mongoose.connect(process.env.DATABASE);
+mongoose.connection.once('open',()=>{
+console.log('connection is successfully established');
+});
 
 app.set('view engine','ejs');
 
