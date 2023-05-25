@@ -20,8 +20,8 @@ const loadVeriftyForgotPassword = async (req, res) => {
     const userDetails = await User.findOne({ mobile: mobile })
     if (userDetails) {
         try {
-            // newOtp = sms.sendMessage(mobile, res);
-            newOtp=1234
+            newOtp = sms.sendMessage(mobile, res);
+            // newOtp=1234
             console.log(newOtp);
             res.render("forgetPasswordVOtp", { mobile: mobile, newOtp: newOtp })
         } catch (error) {
