@@ -98,6 +98,8 @@ admin_route.post("/editCoupon",couponController.editUpdateCoupon);
 
 admin_route.get("/deleteCoupon",couponController.deleteCoupon);
 
+admin_route.post('/updateOrder',adminController.sortOrder)
+
 admin_route.use(errorHandler);
 
 

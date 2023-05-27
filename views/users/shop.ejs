@@ -144,9 +144,9 @@
             <div class="col-lg-9 col-md-8">
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="col-lg-12 d-flex align-items-center mb-4">
                             
-                            <div class="ml-2">
+                            <div class="ml-2 col-lg-3 d-flex">
                                 <select style="background-color: rgb(25, 25, 25); border-color:rgb(52, 52, 52); color: rgb(125, 125, 125); border-radius: 5px;" class="select-box select-box--transparent-b-2"
                                     name="limit" id="limit" onchange="update()">
                                     <option value="12" <% if(limit==12) { %>selected<%}%> >Show: All</option>
@@ -154,16 +154,29 @@
                                     <option value="6" <% if(limit==6) { %>selected<%}%> >Show: 6</option>
                                     <option value="9" <% if(limit==9) { %>selected<%}%> >Show: 9</option>
                                 </select>
-                            </div>
-
-                            <div class="ml-2">
-                                <select style="background-color: rgb(25,25,25); border-color:rgb(52, 52, 52) ;color: rgb(125, 125, 125); border-radius: 5px;" class="select-box select-box--transparent-b-2" name="sort" id="sort"
+                                <select style="background-color: rgb(25,25,25); border-color:rgb(52, 52, 52) ;color: rgb(125, 125, 125); border-radius: 5px;" class="select-box select-box--transparent-b-2 mx-4" name="sort" id="sort"
                                     onchange="update()">
                                     <option value="0" <% if(order==0) { %>selected<%}%> >Sort By: Latest Arrivals</option>
                                     <option value="1" <% if(order==1) { %>selected<%}%> >Sort By: Lowest Price</option>
                                     <option value="-1" <% if(order==-1) { %>selected<%}%> >Sort By: Highest Price</option>
                                 </select>
                             </div>
+                            
+                            <div class="col-lg-3">
+                               
+                            </div>
+
+                            <div class="ml-2 col-lg-6">
+                                <div >
+                                    <form action="">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search" name="search" id="search"
+                                                onkeyup="update()">
+                            
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
                         </div>
                     </div>
                 </div>

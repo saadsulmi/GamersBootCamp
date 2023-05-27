@@ -12,9 +12,10 @@
 
     
         <h4 style="color: white;" class="text-center my-5">ORDER MANAGEMENT</h4>
+      
         <div class="mb-3 ps-4">
-            <!-- <input class="mx-3 ps-2 text-uppercase" style="border: none;border-radius: 4px; background-color: rgb(49, 49, 49); color: white;" type="date" name="startdate" id="startdate" onchange="cli()">
-            <input class="mx-3 ps-2 text-uppercase" style="border: none;border-radius: 4px; background-color: rgb(49, 49, 49); color: white;" type="date" name="enddate" id="enddate" onchange="cli()"> -->
+            <input class="mx-3 ps-2 text-uppercase" style="border: none;border-radius: 4px; background-color: rgb(49, 49, 49); color: white;" type="date" name="startdate" id="startdate" onchange="cli()">
+            <input class="mx-3 ps-2 text-uppercase" style="border: none;border-radius: 4px; background-color: rgb(49, 49, 49); color: white;" type="date" name="enddate" id="enddate" onchange="cli()">
             
         </div>
         <div class="accordion accordion-flush col-md-4 " id="accordionFlushExample">
@@ -188,25 +189,8 @@
 
 
             function cli() {
-                starts = document.getElementById("startdate").value
-                ends = document.getElementById("enddate").value
-                const dateObj = new Date(starts);
-                const dateOb = new Date(ends);
-                const start = dateObj.toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-                });
-                const end = dateOb.toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-                });
-                console.log(start+" "+end);
-
-
+                start = document.getElementById("startdate").value
+                end = document.getElementById("enddate").value
                 console.log(start, end);
                 data = { start: start, end: end }
                 axios.post('/admin/updateOrder', data)
@@ -219,10 +203,24 @@
 
                             if (orders.length > 0) {
                                 orders.forEach((order, i) => {
-                                    ordersTableHTML += `<tr> <th>${i + 1}</th> <td>${order._id}</td> <td>${order.userId.name}</td> <td>${order.payment.amount}</td> <td>${order.payment.method}</td> <td>${order.status}</td> <td>${order.createdAt}</td> <td> <a class="text-white btn btn-light" href="/admin/loadOrderDetails?id=${order._id}">view Details</a><br> <br> <form action="/admin/updateStatus" method="post"> <select name="status" class="browser-default custom-select"> <option>${order.status}</option> <option>cancelled</option> <option>Delivered</option> <option>Shipped</option> <option>packed</option> </select> <input type="hidden" name="orderId" value="${order._id}"> ${order.status !== 'returned' ? '<button style="background-color: darkcyan;" type="submit">update</button>' : ''} </form> </td> </tr> `;
+                                    ordersTableHTML += `<tr> 
+                                        <th style="color:white;">${i + 1}</th>
+                                        <td style="color:white;" >${order._id}</td>
+                                        <td style="color:white;" >${order.userId.name}</td>
+                                        <td style="color:white;" >${order.payment.amount}</td>
+                                        <td style="color:white;" >${order.payment.method}</td>
+                                        <td style="color:white;" >${order.status}</td>
+                                        <td style="color:white;" >${order.createdAt}</td>
+                                        <td>
+                                            <a style="color:white;" class="btn btn-info" href="/admin/loadOrderDetails?id=${order._id}">view Details</a>
+                                            <br>
+                                            <br>
+                                            
+                                        </td>
+                                        </tr> `;
                                 });
                             } else {
-                                ordersTableHTML = '<tr><td colspan="5">Products Not Found</td></tr>';
+                                ordersTableHTML = '<tr><td style="color:white;" colspan="5">Products Not Found</td></tr>';
                             }
                             document.getElementById("tbody").innerHTML = ordersTableHTML;
                         }
