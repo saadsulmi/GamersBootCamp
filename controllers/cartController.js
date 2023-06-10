@@ -37,7 +37,7 @@ const addToCart = async (req, res) => {
             const userData = await User.findById({ _id: userSession })
             const productData = await products.findById({ _id: productId })
             userData.addToCart(productData)
-            res.redirect('/loadCart');
+            res.redirect('/cart');
             // res.render('details',{ user: req.session.user,message:"product added to cart !",detail: details, related: product })
 
         } else {
@@ -71,7 +71,7 @@ const deleteCart = async (req, res,) => {
         userSession = req.session
         const userData = await User.findById({ _id: userSession.user_id })
         userData.removefromCart(productId)
-        res.redirect('/loadCart')
+        res.redirect('/cart')
     } catch (error) {
         console.log(error)
     }

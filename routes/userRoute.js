@@ -45,17 +45,17 @@ user_route.get("/login",auth.isLogin,userControllers.loadHome);
 
 user_route.get("/logout",userControllers.userLogout);
 
-user_route.get("/userProfile",userControllers.loadUserProfile);
+user_route.get("/profile",userControllers.loadUserProfile);
 
 user_route.get("/editUser",userControllers.editUser);
 
 user_route.post("/editUser",userControllers.editUserUpdate);
 
-user_route.get("/loadShop",userControllers.loadShop);
+user_route.get("/shop",userControllers.loadShop);
 
 user_route.get("/viewDetails",userControllers.loadDetails);
 
-user_route.get("/loadCart",cartController.loadCart);
+user_route.get("/cart",cartController.loadCart);
 
 user_route.get("/addToCart",cartController.addToCart);
 
@@ -87,7 +87,7 @@ user_route.get("/vieworder",userControllers.viewOrderDetails);
 
 user_route.get("/onlinePayment",userControllers.loadOrderSuccess);
 
-user_route.get("/loadWishlist",wishlistController.loadWishlist);
+user_route.get("/wishlist",wishlistController.loadWishlist);
 
 user_route.get("/addWishlist",wishlistController.addWishlist);
 

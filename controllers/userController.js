@@ -195,7 +195,7 @@ const editUserUpdate = async (req, res,next) => {
 
             }
         })
-        res.redirect("/userProfile")
+        res.redirect("/profile")
     } catch (error) {
         next(error);
 
@@ -298,7 +298,7 @@ const addNewAddress = async (req, res,next) => {
         })
         const newAddress = await nAddress.save();
         if (newAddress) {
-            res.redirect("/userProfile");
+            res.redirect("/profile");
         }
     } catch (error) {
         next(error);
@@ -311,7 +311,7 @@ const deleteAddress = async (req, res,next) => {
         const id = req.query.id;
         const Address = await address.deleteOne({ _id: id });
         if (Address) {
-            res.redirect("/userProfile");
+            res.redirect("/profile");
         }
     } catch (error) {
         next(error);
@@ -356,7 +356,7 @@ const editUpdateAddress = async (req, res,next) => {
                 mobile: req.body.mno
             }
         })
-        res.redirect("/userProfile")
+        res.redirect("/profile")
     } catch (error) {
         next(error);
 
@@ -534,7 +534,7 @@ const cancelOrder = async (req, res,next) => {
                 }
             }
         }
-        res.redirect("/userProfile")
+        res.redirect("/profile")
     } catch (error) {
         next(error);
 
@@ -651,7 +651,7 @@ const retunOrder = async (req, res) => {
             }
         }
         
-        res.redirect("/userProfile");
+        res.redirect("/profile");
     } catch (error) {
         console.log(error.message);
     }
@@ -669,7 +669,7 @@ const cancelReturnOrder = async (req, res) => {
         const returnCancel = await order.findByIdAndUpdate({ _id: id }, { $set: { status: "delivered" } })
         await orderDetails.populate('products.item.productId')
         
-        res.redirect("/userProfile");
+        res.redirect("/profile");
     } catch (error) {
         console.log(error.message);
     }
