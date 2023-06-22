@@ -1,3 +1,51 @@
-/*
-Custom Css
-*/
+footer #icon1{
+    transition: 0.5s ease-out;
+}
+footer #icon1:hover{
+    transform: scale(1.2);
+    fill: rgb(229, 255, 0);
+    
+}
+footer #icon2{
+    transition: 0.5s ease-out;
+
+}
+footer #icon2:hover{
+    transform: scale(1.2);
+    fill: rgb(229, 255, 0);
+}
+
+footer #icon3{
+    transition: 0.5s ease-out;
+
+}
+footer #icon3:hover{
+    transform: scale(1.2);
+    fill: rgb(229, 255, 0);
+}
+footer #icon4{
+    transition: 0.5s ease-out;
+
+}
+footer #icon4:hover{
+    transform: scale(1.2);
+    fill: rgb(229, 255, 0);
+}
+footer #icon5{
+    transition: 0.5s ease-out;
+}
+footer #icon5:hover{
+    transform: scale(1.2);
+    fill: rgb(229, 255, 0);
+}
+
+footer #linkedin{
+    text-decoration: none;
+    transition: 0.3s;
+    color: rgb(186, 186, 228);
+}
+footer #linkedin:hover{
+    transition: 0.5s ease-out;
+    color: rgb(229, 255, 0);
+    letter-spacing: 0.03em;
+}
