@@ -57,11 +57,11 @@ https://templatemo.com/tm-559-zay-shop
 
 
     <!-- Header -->
-    <nav  class="navbar navbar-expand-lg  shadow" style="border-radius: 0px 0px 10px 10px; background-color: rgb(42, 42, 42);">
+    <nav id="navbarOn"  class="navbar navbar-expand-lg  shadow" style="border-radius: 0px 0px 10px 10px; background-color: rgb(42, 42, 42);">
         <div class="container d-flex justify-content-between align-items-center">
 
             <a style="color: white; padding-right: 100px;" class="navbar-brand logo h2 align-self-center" href="/home">
-                <img style="width: 250px; margin-right: 100px;" src="./assets/img/logo.png" class=" img-fluid">
+                <img id="logonav" style="width: 250px; margin-right: 100px;" src="./assets/img/logo.png" class=" img-fluid">
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,41 +86,41 @@ https://templatemo.com/tm-559-zay-shop
                        
                         <% if (user) { %>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/home">Home</a>
+                                 <a id="navList" class="nav-link" href="/home">Home</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/shop">Shop</a>
+                                 <a id="navList" class="nav-link" href="/shop">Shop</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/wishlist">Wishlist</a>
+                                 <a id="navList"  class="nav-link" href="/wishlist">Wishlist</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/cart">Cart</a>
+                                 <a id="navList"  class="nav-link" href="/cart">Cart</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/profile">Profile</a>
+                                 <a id="navList"  class="nav-link" href="/profile">Profile</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/logout">Logout</a>
+                                 <a id="navList"  class="nav-link" href="/logout">Logout</a>
                              </li>
                          <% } else { %>
                            
                              <li class="mr-6"></li>
                              <li class="mr-2"></li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/">Home</a>
+                                 <a id="navList"  class="nav-link" href="/">Home</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/shop">Shop</a>
+                                 <a id="navList"  class="nav-link" href="/shop">Shop</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/login">Wishlist</a>
+                                 <a id="navList" s class="nav-link" href="/login">Wishlist</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/login">Cart</a>
+                                 <a id="navList"  class="nav-link" href="/login">Cart</a>
                              </li>
                              <li class="nav-item">
-                                 <a style="color: white;" class="nav-link" href="/login">Login</a>
+                                 <a id="navList" class="nav-link" href="/login">Login</a>
                              </li>
                              <!-- <li class="nav-item">
                                  <a style="color: white;" class="nav-link" href="/register">Register</a>
