@@ -12,7 +12,7 @@ ul li #navList{
 }
 ul li #navList:hover{
     transition: 0.3s;
-    color: rgb(229, 255, 0);
+    color: rgb(244, 255, 144);
 }
 
 footer #icon1{
