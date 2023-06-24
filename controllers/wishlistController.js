@@ -22,15 +22,15 @@ const loadWishlist = async (req, res) => {
 }
 
 const addWishlist = async (req, res) => {
-    const productId = req.query.id
+    const productId = await req.query.id
     console.log(req.query.id);
     userSession = req.session
     if (userSession.user_id) {
 
         const userData = await User.findById({ _id: userSession.user_id })
         const productData = await products.findById({ _id: productId })
-        userData.addToWishlist(productData)
-        res.redirect('/loadWishlist')
+        await userData.addToWishlist(productData)
+        res.redirect('/wishlist')
     } else {
         res.redirect('/login')
     }
@@ -41,7 +41,7 @@ const deleteWishlist = async (req, res) => {
     userSession = req.session
     const userData = await User.findById({ _id: userSession.user_id })
     userData.removefromWishlist(productId)
-    res.redirect('/loadWishlist')
+    res.redirect('/wishlist')
 }
 
 const addToCartremovefromwishlist = async (req, res) => {
