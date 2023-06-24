@@ -35,6 +35,7 @@ const addWishlist = async (req, res) => {
         res.redirect('/login')
     }
 }
+git 
 
 const deleteWishlist = async (req, res) => {
     const productId = req.query.id
@@ -57,7 +58,6 @@ const addToCartremovefromwishlist = async (req, res) => {
             const userDatas = await User.findById({ _id: userSession.user_id })
             userDatas.addToCart(productData)
             res.redirect('/loadCart')
-            // res.render('details',{ user: req.session.user,message:"product added to cart !",detail: details, related: product })
 
         } else {
             res.redirect('/login')
