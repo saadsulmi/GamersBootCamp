@@ -35,7 +35,6 @@ const addWishlist = async (req, res) => {
         res.redirect('/login')
     }
 }
-git 
 
 const deleteWishlist = async (req, res) => {
     const productId = req.query.id
