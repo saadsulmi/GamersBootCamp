@@ -28,12 +28,12 @@ const securePassword = async (password) => {
     try {
       const email = req.body.email;
       const password = req.body.password;
-  
       const userData = await User.findOne({ email: email });
+      console.log(userData);
   
       if (userData) {
         const passwordMatch = await bcrypt.compare(password, userData.password);
-  
+        console.log(passwordMatch,"password");
         if (passwordMatch) {
           if (userData.is_admin === false) {
             res.render("adminLogin", { message: "email and password incorrect" });

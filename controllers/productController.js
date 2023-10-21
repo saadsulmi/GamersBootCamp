@@ -65,14 +65,11 @@ const editProduct = async (req, res) => {
   try {
     console.log(req.files);
     if (req.files.length != 0) {
-      console.log("hsi"+req.body);
       const productDetails = await product.findOne({ _id: req.query.id })
-      // const users= await User.findOne({_id:req.session.name});
-      console.log(req.session);
       const oldImg = productDetails.image
       const newImg = req.files.map((x) => x.filename)
       const images = oldImg.concat(newImg)
-      productt = await product.updateOne({ _id: req.query.id }, {
+      let productt = await product.updateOne({ _id: req.query.id }, {
         $set: {
           name: req.body.pName,
           stock: req.body.pStock,
@@ -85,7 +82,7 @@ const editProduct = async (req, res) => {
       })
     } else {
 
-      productt = await product.updateOne({ _id: req.query.id }, {
+      let productt = await product.updateOne({ _id: req.query.id }, {
         $set: {
           name: req.body.pName,
           price: req.body.pPrice,
