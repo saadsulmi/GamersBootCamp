@@ -465,6 +465,7 @@ const placeOrder = async (req, res,next) => {
                 }
             }
             await User.updateOne({ _id: req.session.user_id }, { $unset: { cart: 1 } })
+            await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
             res.render("orderSuccess", { user: req.session.user})
         }
         else if(req.body.payment == "Online"){
@@ -565,6 +566,7 @@ const loadOrderSuccess = async (req, res,next) => {
         console.log("confirmation");
         await Norder.save();
         await User.updateOne({ _id: req.session.user_id }, { $unset: { cart: 1 } })
+        await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
         res.render("orderSuccess", { user: req.session.user })
 
     } catch (error) {
@@ -572,35 +574,29 @@ const loadOrderSuccess = async (req, res,next) => {
     }
 } 
 
-
 const applyCoupon = async (req, res) => {
     try {
         const totalPrice = req.body.totalValue;
-        console.log("total" + totalPrice);
-        console.log(req.body.coupon);
+        console.log("total price of product" + totalPrice);
+
         userdata = await User.findById({ _id: req.session.user_id });
         offerdata = await coupon.findOne({ name: req.body.coupon });
-        // console.log('fghdj');
+
         if (offerdata) {
-            // console.log('p333');
+
             console.log(offerdata.expiryDate, Date.now());
             const date1 = new Date(offerdata.expiryDate);
             const date2 = new Date(Date.now());
             if (date1.getTime() > date2.getTime()) {
-                // console.log('p4444');
+
                 if (offerdata.usedBy.includes(req.session.user_id)) {
                     messag = 'coupon already used'
-                    console.log(messag);
                 } else {
-                    console.log('eldf');
                     console.log(userdata.cart.totalPrice, offerdata.maximumvalue, offerdata.minimumvalue);
                     if (userdata.cart.totalPrice >= offerdata.minimumvalue) {
-                        console.log('COMMING');
-                        console.log('offerdata.name');
-                        await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: userdata._id } });
-                        console.log('kskdfthg');
                         disc = (offerdata.discount * totalPrice) / 100;
                         if (disc > offerdata.maximumvalue) { disc = offerdata.maximumvalue }
+
                         console.log(disc);
                         
                         res.send({ offerdata, disc, state: 1 })

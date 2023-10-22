@@ -123,6 +123,7 @@ const editProduct = async (req, res) => {
   const addAddProducts = async (req, res) => {
     if (req.files.length != 0) {
       try {
+        const newImg = req.files.map((x) => x.filename)
         const productdetails = new product({
           name: req.body.pName,
           price: req.body.pPrice,
@@ -130,7 +131,7 @@ const editProduct = async (req, res) => {
           rating: req.body.pRating,
           category: req.body.pCategory,
           description: req.body.pDescription,
-          image: req.files.map((x) => x.filename),
+          image: newImg,
         });
         const productData = await productdetails.save();
         if (productData) {

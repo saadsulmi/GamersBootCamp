@@ -248,7 +248,6 @@
                                 </h5>
 
                                 <input id="last" type="hidden" value="<%=checkoutdetails.totalPrice%>" name="amount">
-
                             </div>
                         </div>
                     </div>
@@ -419,17 +418,22 @@ addressRadio.addEventListener("change", function() {
 
         
         function apply() {
+
+            let lastprice = document.getElementById('subTotal') 
+
             console.log("sample");
             cop = document.getElementById('coupon').value
-            console.log(cop);
-            subT = document.getElementById('subTotal').value
-            console.log(subT);
+            console.log(cop,"this is my discount coup");
+            subT = lastprice.value
+            console.log(subT,"here is my sub total");
+            
+
             $.ajax({
                 url: '/applyCoupon',
                 type: 'POST',
                 data: { coupon: cop, totalValue: subT },
                 success: function (data) {
-                    console.log(data);
+                    console.log(data,"my data is here");
                     if (data.state) {
                         total = subT - data.disc;
                         document.getElementById('dis').innerHTML = data.offerdata.discount + "%";
@@ -437,8 +441,7 @@ addressRadio.addEventListener("change", function() {
                         document.getElementById('gT').innerHTML = total
                         // document.getElementById('final').value=total;
                         // console.log(  document.getElementById('final').value);
-                        document.getElementById("payable").value = total;
-                        console.log(data);
+                        document.getElementById('last') .value = total
                     } else {
                         document.getElementById("msg").innerHTML = data.messag;
                     }
