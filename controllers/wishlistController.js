@@ -56,7 +56,7 @@ const addToCartremovefromwishlist = async (req, res) => {
             userSession = req.session
             const userDatas = await User.findById({ _id: userSession.user_id })
             userDatas.addToCart(productData)
-            res.redirect('/loadCart')
+            res.redirect('/cart')
 
         } else {
             res.redirect('/login')
