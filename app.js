@@ -20,11 +20,12 @@ app.use(express.urlencoded({extended:true}))
 app.use(nocache());
 
 
+app.use("/admin",adminRoute);
+
 app.use("/",userRoute);
 
 app.use("/forgot",userForgetPass);
 
-app.use("/admin",adminRoute);
 
 app.all('*', (req, res) => {
   res.render('error');
