@@ -465,7 +465,8 @@ const placeOrder = async (req, res,next) => {
                 }
             }
             await User.updateOne({ _id: req.session.user_id }, { $unset: { cart: 1 } })
-            await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
+            let offerdata = await coupon.findOne({ name: req.body.coupon });
+            if(offerdata) await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
             res.render("orderSuccess", { user: req.session.user})
         }
         else if(req.body.payment == "Online"){
@@ -563,10 +564,11 @@ const loadOrderSuccess = async (req, res,next) => {
         Norder.paymentDetails.reciept = paymentDetails.receipt;
         Norder.paymentDetails.status = paymentDetails.status;
         Norder.paymentDetails.createdAt = paymentDetails.created_at;
+        let offerdata = await coupon.findOne({ name: req.body.coupon });
         console.log("confirmation");
         await Norder.save();
         await User.updateOne({ _id: req.session.user_id }, { $unset: { cart: 1 } })
-        if(offerdata )await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
+        if(offerdata) await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
         res.render("orderSuccess", { user: req.session.user })
 
     } catch (error) {
@@ -579,8 +581,8 @@ const applyCoupon = async (req, res) => {
         const totalPrice = req.body.totalValue;
         console.log("total price of product" + totalPrice);
 
-        userdata = await User.findById({ _id: req.session.user_id });
-        offerdata = await coupon.findOne({ name: req.body.coupon });
+        let userdata = await User.findById({ _id: req.session.user_id });
+        let offerdata = await coupon.findOne({ name: req.body.coupon });
 
         if (offerdata) {
 
