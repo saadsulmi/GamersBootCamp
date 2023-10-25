@@ -6,6 +6,14 @@
     transition: 0.3s;
     transform: scale(1.01);
 }
+*{
+    box-sizing: border-box
+}
+
+*::-webkit-scrollbar {
+    display: none;
+  }
+
 ul li #navList{
     color: rgb(255, 255, 255);
     transition: 0.3s;

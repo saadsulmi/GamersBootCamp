@@ -106,8 +106,9 @@
                             <td class="align-start">
                               <% if(key.products.item.length===1){ %>
                                 <%=key.products.item[0].productId.name%>
-                              <% }else{ %>
-                              <%=key.products.item[0].productId.name%> , <a class="text-decoration-none" href="/vieworder?id=<%=key._id%>"><small class="h6 text-info"> more..</small></a> 
+                              <% }else if(key.products.item.length>1){ %>
+                              <%=key.products.item[0].productId.name%> ,
+                               <a class="text-decoration-none" href="/vieworder?id=<%=key._id%>"><small class="h6 text-info"> more..</small></a> 
                               <% } %>
                             </td>
                             <td class="align-middle " >

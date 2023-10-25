@@ -197,6 +197,9 @@
                             <a data-toggle="modal" class="btn btn-info btn-sm" type="button"
                                 href="#exampleModalScrollable1">Show Coupons</a>
                         </div>
+                        <div>
+                            <h6 style="color: red; margin-top: 10px;" id="msg"></h6>
+                        </div>
                     </div>
                     <hr>
                     <hr>
@@ -205,7 +208,7 @@
                     <div class=" p-30 mb-5">
 
                         <div class="border-bottom">
-                            <h6 style="color: red;" id="msg"></h6>
+                            
                             <div style="color: white;" class="d-flex justify-content-between">
                                 <h6 class="mb-3">Products</h6>
                                 <h6 class="mb-3">Price</h6>
@@ -312,7 +315,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <% if(coupon.length>=0) {%>
+                <% if(coupon.length<=0) {%>
                     <h6 class="mx-4 text-uppercase text-danger">no coupon found</h6>
                 <% } %>
                 <input type="hidden" id="total" value="<%=coupon.length %>">
@@ -433,7 +436,6 @@ addressRadio.addEventListener("change", function() {
                 type: 'POST',
                 data: { coupon: cop, totalValue: subT },
                 success: function (data) {
-                    console.log(data,"my data is here");
                     if (data.state) {
                         total = subT - data.disc;
                         document.getElementById('dis').innerHTML = data.offerdata.discount + "%";

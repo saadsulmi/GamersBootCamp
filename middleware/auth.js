@@ -8,9 +8,10 @@ const isLogin = async (req, res, next) => {
       } else {
         req.session.user1 = null;
         req.session.user=null;
+       
       }
     } else {
-      next()
+      res.redirect("/");
     }
   } catch (error) {
     console.log(error.message);

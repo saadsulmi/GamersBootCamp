@@ -566,7 +566,7 @@ const loadOrderSuccess = async (req, res,next) => {
         console.log("confirmation");
         await Norder.save();
         await User.updateOne({ _id: req.session.user_id }, { $unset: { cart: 1 } })
-        await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
+        if(offerdata )await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: req.session.user_id } });
         res.render("orderSuccess", { user: req.session.user })
 
     } catch (error) {
@@ -587,7 +587,7 @@ const applyCoupon = async (req, res) => {
             console.log(offerdata.expiryDate, Date.now());
             const date1 = new Date(offerdata.expiryDate);
             const date2 = new Date(Date.now());
-            if (date1.getTime() > date2.getTime()) {
+            if (date1.getTime()+6000000 > date2.getTime()) {
 
                 if (offerdata.usedBy.includes(req.session.user_id)) {
                     messag = 'coupon already used'
