@@ -36,6 +36,7 @@ user_route.post("/register", userControllers.loadOtp);
 
 user_route.post("/otpPage",userControllers.verifyOtp)
 
+user_route.get("/shop",userControllers.loadShop);
 
 user_route.use(auth.isLogin);
 
@@ -50,8 +51,6 @@ user_route.get("/profile",userControllers.loadUserProfile);
 user_route.get("/editUser",userControllers.editUser);
 
 user_route.post("/editUser",userControllers.editUserUpdate);
-
-user_route.get("/shop",userControllers.loadShop);
 
 user_route.get("/viewDetails",userControllers.loadDetails);
 
