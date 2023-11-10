@@ -11,7 +11,7 @@ const isLogin = async (req, res, next) => {
        
       }
     } else {
-      res.redirect("/");
+      next()
     }
   } catch (error) {
     console.log(error.message);
