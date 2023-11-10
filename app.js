@@ -19,10 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(nocache());
 
+app.use("/",userRoute);
 
 app.use("/admin",adminRoute);
-
-app.use("/",userRoute);
 
 app.use("/forgot",userForgetPass);
 
